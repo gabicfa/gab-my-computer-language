@@ -1,0 +1,105 @@
+declaracoes
+    :'{' declaracao+ '}'
+    ;
+
+declaracao
+    : funcao
+    | listaAfirm
+    ;
+
+funcao
+    : 'FUNCAO' id '(' ')' '{' listaAfirm '}'
+    | 'FUNCAO' id '(' listaVar ')' '{' listaAfirm '}'
+    ;
+
+chama
+    :'(' ')'
+    |'('listaVar')'
+    ;
+
+listaVar   
+    : id
+    | id ',' listaVar
+    ;
+
+listaAfirm
+    :afirmacao+
+    ;
+
+afirmacao
+    :enquanto
+    |caso
+    |imprimir
+    |id chama ';'
+    |id atribui ';'
+    ;
+
+atribui
+    :'=' ladoDir
+    |'=' scan
+    ;
+
+scan
+    :'SCAN' '(' ')'
+    ;
+
+imprimir
+    :'IMPRIMIR' '(' ladoDir ')'
+    ;
+
+ladoDir
+    : termo
+    | termo '+' termo
+    | termo '-' termo 
+    ;
+
+termo
+    : fator
+    | fator '*' fator
+    | fator '/' fator 
+    ;
+
+fator 
+    :'+' inteiro
+    |'-' inteiro
+    |'+' id
+    |'-' id
+    |inteiro
+    |id
+    |id chama
+    |'(' ladoDir ')'
+    ;
+
+enquanto
+    :'ENQUANTO' expressao '{' listaAfirm '}'
+    ;
+
+caso
+    :'CASO' expressao '{' listaAfirm '}'
+    |'CASO' expressao '{' listaAfirm '}' 'SENÃO' '{' listaAfirm '}'
+    ;
+
+expressao
+    : '(' id '>' ladoDir ')'
+    | '(' id '<' ladoDir ')'
+    | '(' id '==' ladoDir ')'
+    | '(' id '!=' ladoDir ')'
+    ;
+
+inteiro
+    :DIGITO+
+    ;
+
+id
+    :LETRA+
+    |LETRA+ [DIGITO+]
+    ;
+
+LETRA
+    :[a-z]+
+    ;
+
+DIGITO
+    :[0-9]
+    ;
+
