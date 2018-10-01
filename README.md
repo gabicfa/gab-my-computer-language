@@ -4,7 +4,7 @@
   * Criar uma linguagem de programação de alta produtividade
 
 ### Preliminar:
-  Crie uma lista de tópicos que você gostaria que tivesse na sua linguagem. Tente organizar a linguage, e, algum esquema. Deve conter no mínimo:  variáveis, funções, condicionais, loops e I/O:
+  Crie uma lista de tópicos que você gostaria que tivesse na sua linguagem. Deve conter no mínimo:  variáveis, funções, condicionais, loops e I/O:
   
   * Linguagem com palavras reservadas em português;
   * Podendo imprimir valor de expressoes matematicas envolvendo variaveis
