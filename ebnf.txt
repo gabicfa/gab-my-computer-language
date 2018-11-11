@@ -32,6 +32,7 @@ afirmacao
     |imprimir
     |id chama ';'
     |id atribui ';'
+    |retornar
     ;
 
 atribui
@@ -53,6 +54,9 @@ ladoDir
     | termo '-' termo 
     ;
 
+retornar
+    : 'RETORNAR' '(' ladoDir ')'
+    
 termo
     : fator
     | fator '*' fator
