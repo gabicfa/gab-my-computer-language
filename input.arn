@@ -1,0 +1,14 @@
+{
+    funcao main(){
+        c = scan();
+        enquanto(c>0){
+            caso(c>5){
+                imprimir(10);
+            }
+            senao{
+                imprimir(20);
+            }
+            c = scan();
+        }
+    }
+}
