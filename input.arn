@@ -1,14 +1,30 @@
 {
+    funcao soma(x,y){
+        retornar(x+y);
+    }
+
+    funcao mult(x,y){
+        retornar(x*y);
+    }
+
     funcao main(){
-        c = scan();
-        enquanto(c>0){
-            caso(c>5){
-                imprimir(10);
+        
+        a = scan();
+
+        enquanto(a>0){
+            b = scan();
+            c = soma(a,b);
+            d = mult(a,b);
+            caso(c<d){
+                e = mult(c, d);
+                imprimir(e/c);
             }
             senao{
-                imprimir(20);
+                imprimir(soma(c,d));
             }
-            c = scan();
+            /*imprimir(e);*/
+            a = scan();
         }
     }
+    
 }

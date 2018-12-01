@@ -4,8 +4,10 @@ funcs_st = SymbleTable(None)
 
 def run(p, st):
     if type(p) == tuple:
+
         if p[0] == 'func':
             funcs_st.set(p[1], p)
+
         elif p[0] == 'call_func':
             func = funcs_st.get(p[1])
             new_st = SymbleTable(st)
@@ -38,6 +40,7 @@ def run(p, st):
 
         elif p[0] == 'imprimir':
             print(run(p[1], st))
+            
         elif p[0] == 'scan':
             return int(input())
 

@@ -7,10 +7,8 @@ def p_arnaldo(p):
     '''
     arnaldo : programa
     '''
-    print('arnaldo')
     main_call = ('call_func', 'main', ('listvar', None))
     p[1].append(main_call)
-    print('P[0]')
     p[0] = p[1]
     print(p[0])
     st = SymbleTable(None)
@@ -20,9 +18,7 @@ def p_programa(p):
     '''
     programa : ABRE_CHAVES declaracoes FECHA_CHAVES
     '''
-    print('programa')
     p[0] = p[2]
-    print(p[0])
 
 def p_declaracoes(p):
     '''
@@ -30,7 +26,6 @@ def p_declaracoes(p):
                 | declaracoes listaAfirm
                 | empty
     '''
-    print('declaracoes')
     declaracoes = []
     for i in range (1, len(p)):
         if p[i] != None:
@@ -40,7 +35,6 @@ def p_declaracoes(p):
                 for j in p[i]:
                     declaracoes.append(j)
     p[0] = declaracoes
-    print(p[0])
 
 def p_declaracoesSemFunc(p):
     '''
@@ -62,7 +56,6 @@ def p_declaroesParaFunc(p):
     declaracoes_para_func : declaracoes_para_func listaAfirmFunc
                           | empty
     '''
-    print('declaracoes para func')
     declaracaoParaFunc = []
     for i in range (1, len(p)):
         if p[i] != None:
@@ -72,15 +65,12 @@ def p_declaroesParaFunc(p):
                 for j in p[i]:
                     declaracaoParaFunc.append(j)
     p[0] = declaracaoParaFunc
-    print(p[0])
 
 def p_funcao(p):
     '''
     funcao : FUNCAO ID ABRE_PAREN listaVar FECHA_PAREN ABRE_CHAVES declaracoes_para_func FECHA_CHAVES
     '''
-    print('funcao')
     p[0] = ('func', p[2], p[4], p[7])
-    print(p[0])
 
 def p_chama(p):
     '''
@@ -93,9 +83,7 @@ def p_listaVar_single(p):
     listaVar : ID
              | empty
     '''
-    print('listVar')
     p[0] = ('var', p[1])
-    print(p[0])
 
 def p_listaVar_list(p):
     '''
@@ -117,7 +105,6 @@ def p_listaAfirm(p):
                 for j in p[i]:
                     listaAfirm.append(j)
     p[0] = listaAfirm
-    print(p[0])
 
 def p_listaAfirmFun(p):
     '''
@@ -133,7 +120,6 @@ def p_listaAfirmFun(p):
                 for j in p[i]:
                     listaAfirmFunc.append(j)
     p[0] = listaAfirmFunc
-    print(p[0])
 
 def p_afirmacao(p):
     '''
@@ -141,7 +127,6 @@ def p_afirmacao(p):
               | caso
               | imprimir
     '''
-    print('afirmacao')
     p[0] = p[1]
 
 def p_afirmacaoFunc(p):
@@ -149,9 +134,7 @@ def p_afirmacaoFunc(p):
     afirmacaoFunc : afirmacao
                   | retornar
     '''
-    print('afirmacaoFunc')
     p[0] = p[1]
-    print(p[0])
 
 def p_afirmacao_chama(p):
     '''
@@ -163,7 +146,6 @@ def p_afirmacao_atribui(p):
     '''
     afirmacao : ID atribui PONTO_VIRG
     '''
-    print('afirmacao atribui')
     p[0] = ('atri', p[1], p[2])
 
 def p_atribui(p):
@@ -273,9 +255,7 @@ def p_expressao(p):
               | ABRE_PAREN ID EQUALS ladoDir FECHA_PAREN
               | ABRE_PAREN ID DIFER ladoDir FECHA_PAREN
     '''
-    print('expressão')
     p[0] = (p[3], ('var', p[2]), p[4])
-    print(p[0])
 
 def p_error(p):
     print("Syntax error found!")
