@@ -22,3 +22,138 @@
   Não é preciso implementar um compilador novo.
   4. Criar um exemplo de testes que demonstre as características da sua Linguagem.
   5. Fazer uma apresentação de 15 minutos na data da entrega final.
+
+### EBNF
+
+  ```
+  gab : programa
+
+  programa
+      :'{' declaracoes '}'
+      ;
+
+  declaracoes 
+      : declaracoes funcao
+      | declaracoes listaAfirm
+      | empty
+      ;
+
+  declaracoes_sem_func 
+      : declaracoes_sem_func listaAfirm
+      | empty
+      ;
+
+  declaracoes_para_func 
+      : declaracoes_para_func listaAfirmFunc
+      | empty
+      ;
+
+  funcao
+      : 'funcao' id '(' listaVar ')' '{' declaracoes_para_func '}'
+      ;
+
+  chama
+      :'('listaVar')'
+      ;
+
+  listaVar   
+      : id
+      | id ',' listaVar
+      | empty
+      ;
+
+  listaAfirm
+      : listaAfirm afirmacao
+      | empty
+      ;
+
+  listaAfirmFunc 
+      : listaAfirmFunc afirmacaoFunc
+      | empty
+      ;
+
+  afirmacaoFunc 
+      : afirmacao
+      | retornar
+      ;
+
+  afirmacao 
+      : enquanto
+      | caso
+      | imprimir
+      | id chama ';'
+      | id atribui ';'
+      ;
+
+  atribui
+      :'=' ladoDir
+      |'=' scan
+      ;
+
+  scan
+      :'SCAN' '(' ')' ';'
+      ;
+
+  imprimir
+      :'IMPRIMIR' '(' ladoDir ')' ';'
+      ;
+
+  ladoDir
+      : termo
+      | termo '+' termo
+      | termo '-' termo 
+      ;
+
+  retornar
+      : 'RETORNAR' '(' ladoDir ')' ';'
+      
+  termo
+      : fator
+      | fator '*' fator
+      | fator '/' fator 
+      ;
+
+  fator 
+      :'+' inteiro
+      |'-' inteiro
+      |'+' id
+      |'-' id
+      |inteiro
+      |id
+      |id chama
+      |'(' ladoDir ')' ';'
+      ;
+
+  enquanto
+      :'ENQUANTO' expressao '{' declaracoes_sem_func '}'
+      ;
+
+  caso
+      :'CASO' expressao '{' declaracoes_sem_func '}'
+      |'CASO' expressao '{' declaracoes_sem_func '}' 'SENAO' '{' declaracoes_sem_func '}'
+      ;
+
+  expressao
+      : '(' id '>' ladoDir ')'
+      | '(' id '<' ladoDir ')'
+      | '(' id '==' ladoDir ')'
+      | '(' id '!=' ladoDir ')'
+      ;
+
+  inteiro
+      :DIGITO+
+      ;
+
+  id
+      :LETRA+
+      |LETRA+ [DIGITO+]
+      ;
+
+  LETRA
+      :[a-z]+
+      ;
+
+  DIGITO
+      :[0-9]
+      ;
+  ```

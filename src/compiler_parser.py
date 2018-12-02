@@ -3,9 +3,9 @@ from compiler_eval import run
 from compiler_st import SymbleTable
 import ply.yacc as yacc
 
-def p_arnaldo(p):
+def p_gab(p):
     '''
-    arnaldo : programa
+    gab : programa
     '''
     main_call = ('call_func', 'main', ('listvar', None))
     p[1].append(main_call)

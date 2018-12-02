@@ -1,38 +1,60 @@
-declaracoes
-    :'{' declaracao+ '}'
+gab : programa
+
+programa
+    :'{' declaracoes '}'
     ;
 
-declaracao
-    : funcao
-    | listaAfirm
+declaracoes 
+    : declaracoes funcao
+    | declaracoes listaAfirm
+    | empty
+    ;
+
+declaracoes_sem_func 
+    : declaracoes_sem_func listaAfirm
+    | empty
+    ;
+
+declaracoes_para_func 
+    : declaracoes_para_func listaAfirmFunc
+    | empty
     ;
 
 funcao
-    : 'FUNCAO' id '(' ')' '{' listaAfirm '}'
-    | 'FUNCAO' id '(' listaVar ')' '{' listaAfirm '}'
+    : 'funcao' id '(' listaVar ')' '{' declaracoes_para_func '}'
     ;
 
 chama
-    :'(' ')'
-    |'('listaVar')'
+    :'('listaVar')'
     ;
 
 listaVar   
     : id
     | id ',' listaVar
+    | empty
     ;
 
 listaAfirm
-    :afirmacao+
+    : listaAfirm afirmacao
+    | empty
     ;
 
-afirmacao
-    :enquanto
-    |caso
-    |imprimir
-    |id chama ';'
-    |id atribui ';'
-    |retornar
+listaAfirmFunc 
+    : listaAfirmFunc afirmacaoFunc
+    | empty
+    ;
+
+afirmacaoFunc 
+    : afirmacao
+    | retornar
+    ;
+
+afirmacao 
+    : enquanto
+    | caso
+    | imprimir
+    | id chama ';'
+    | id atribui ';'
     ;
 
 atribui
@@ -41,11 +63,11 @@ atribui
     ;
 
 scan
-    :'SCAN' '(' ')'
+    :'SCAN' '(' ')' ';'
     ;
 
 imprimir
-    :'IMPRIMIR' '(' ladoDir ')'
+    :'IMPRIMIR' '(' ladoDir ')' ';'
     ;
 
 ladoDir
@@ -55,7 +77,7 @@ ladoDir
     ;
 
 retornar
-    : 'RETORNAR' '(' ladoDir ')'
+    : 'RETORNAR' '(' ladoDir ')' ';'
     
 termo
     : fator
@@ -71,16 +93,16 @@ fator
     |inteiro
     |id
     |id chama
-    |'(' ladoDir ')'
+    |'(' ladoDir ')' ';'
     ;
 
 enquanto
-    :'ENQUANTO' expressao '{' listaAfirm '}'
+    :'ENQUANTO' expressao '{' declaracoes_sem_func '}'
     ;
 
 caso
-    :'CASO' expressao '{' listaAfirm '}'
-    |'CASO' expressao '{' listaAfirm '}' 'SENÃO' '{' listaAfirm '}'
+    :'CASO' expressao '{' declaracoes_sem_func '}'
+    |'CASO' expressao '{' declaracoes_sem_func '}' 'SENAO' '{' declaracoes_sem_func '}'
     ;
 
 expressao
