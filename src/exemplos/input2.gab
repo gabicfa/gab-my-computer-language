@@ -1,0 +1,7 @@
+{
+    funcao main(){
+        a = 10;
+        b = 2;
+        imprimir(a/b);
+    }
+}

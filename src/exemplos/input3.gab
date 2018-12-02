@@ -1,0 +1,22 @@
+{
+    funcao soma(x,y){
+        retornar(x+y);
+    }
+
+    funcao sub(x,y){
+        retornar(x-y);
+    }
+
+    funcao main(){
+        
+        a = scan();
+        b = scan();
+        caso(a>b){
+            imprimir(soma(a,b));
+        }
+        senao{
+            imprimir(sub(a,b));
+        }
+    }
+    
+}

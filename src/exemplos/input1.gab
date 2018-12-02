@@ -1,0 +1,5 @@
+{
+    funcao main(){
+        imprimir(10);
+    }
+}

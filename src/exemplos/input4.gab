@@ -20,7 +20,8 @@
                 imprimir(e/c);
             }
             senao{
-                imprimir(soma(c,d));
+                e = soma(c,d);
+                imprimir(e*5);
             }
             /*imprimir(e);*/
             a = scan();
