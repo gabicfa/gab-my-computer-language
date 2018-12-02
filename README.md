@@ -23,7 +23,7 @@
   4. Criar um exemplo de testes que demonstre as características da sua Linguagem.
   5. Fazer uma apresentação de 15 minutos na data da entrega final.
 
-### EBNF
+### BNF
 
   ```
   gab : programa
