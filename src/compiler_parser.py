@@ -10,7 +10,9 @@ def p_gab(p):
     main_call = ('call_func', 'main', ('listvar', None))
     p[1].append(main_call)
     p[0] = p[1]
-    print(p[0])
+    # print('\n')
+    # print(p[0])
+    # print('\n')
     st = SymbleTable(None)
     (run(p[1], st))
     

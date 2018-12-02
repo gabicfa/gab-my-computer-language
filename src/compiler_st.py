@@ -24,8 +24,3 @@ class SymbleTable(object):
                 return self.parent.check(var)
             else:
                 return False
-    def check_this(self, var):
-        if var in self.table:
-            return True
-        else:
-            return False
