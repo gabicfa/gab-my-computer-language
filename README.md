@@ -1,27 +1,27 @@
-# APSLogComp
+# GAB - my computer language - LogComp APS
 
-## Objetivos
-  * Criar uma linguagem de programação de alta produtividade
+## Goal
+  * Create a high-productivity programming language
 
-### Preliminar:
-  Crie uma lista de tópicos que você gostaria que tivesse na sua linguagem. Deve conter no mínimo:  variáveis, funções, condicionais, loops e I/O:
+### Preliminary:
+  Create a list of topics you would like to have in your language. Must contain at least: variables, functions, conditionals, loops and I/O:
   
-  * Linguagem com palavras reservadas em português;
-  * Podendo imprimir valor de expressoes matematicas envolvendo variaveis
-  * Aceitando inputs para atribuir valores a variaveis
-  * Pode-se definir funcões, as chamando e as atribuindo à variaveis
-  * Condicões do tipo 'if, else'
-  * Contas somente com inteiros
+  * Language with reserved words in Portuguese;
+  * Being able to print the value of mathematical expressions involving variables;
+  * Accepting inputs to assign values to variables;
+  * You can define functions, calling them and assigning them to variables;
+  * Conditions like 'if, else';
+  * Mathematical expressions with integers only;
 
-### Atividade prática
+### Activity
 
-  1. Adequar a linguagem à uma GLC e estruturá-la segundo o padrão EBNF.
-  2. Utilizar as ferramentas Flex e Bison (ou semelhantes) para realizar as etapas de Análise Léxica e
-  Sintática.
-  3. Utilizar a LLVM (ou derivadas) para implementar a sua linguagem até a fase final de compilação.
-  Não é preciso implementar um compilador novo.
-  4. Criar um exemplo de testes que demonstre as características da sua Linguagem.
-  5. Fazer uma apresentação de 15 minutos na data da entrega final.
+   1. Adapt the language to a GLC and structure it according to the EBNF standard.
+   2. Use Flex and Bison (or similar) tools to perform the Lexical Analysis and
+   Syntactic.
+   3. Use LLVM (or derivatives) to implement your language until the final compilation phase.
+   No need to implement a new compiler.
+   4. Create an example of tests that demonstrate the characteristics of your language.
+   5. Give a 15-minute presentation on the final delivery date.
 
 ### BNF
 
@@ -158,7 +158,7 @@
       ;
   ```
 
-### Fontes
+### Sources
 
 * https://www.dabeaz.com/ply/ply.html
 * https://www.youtube.com/watch?v=Hh49BXmHxX8&list=PLBOh8f9FoHHg7Ed_4yKhIbq4lIJAlonn8
